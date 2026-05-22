@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | Ecuador Comparte</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+</head>
+
+<body>
+
+<header class="home-navbar">
+
+    <div class="home-logo">
+        <img th:src="@{/images/logo.png}"
+             alt="Logo"
+             class="logo-image">
+
+        <span>Ecuador comparte</span>
+    </div>
+
+    <nav class="home-nav">
+        <a href="/#">Impacto</a>
+        <a href="/noticias">Noticias</a>
+        <a href="/testimonios">Testimonios</a>
+        <a href="/contacto" class="active-link">Contacto</a>
+    </nav>
+
+    <div class="home-actions">
+        <a th:href="@{/login}"
+           class="login-btn">
+            Iniciar Sesión
+        </a>
+    </div>
+
+</header>
+
+<section class="contact-hero">
+
+    <span class="contact-badge">
+        CONSTRUYENDO CIMIENTOS EN ECUADOR
+    </span>
+
+    <h1>
+        Estamos aquí para
+        <span>escucharte.</span>
+    </h1>
+
+    <p>
+        Ya sea que quieras colaborar, donar o simplemente saber más
+        sobre nuestro impacto en Ecuador, nuestro equipo está listo para conectar contigo.
+    </p>
+
+</section>
+
+<section class="contact-section">
+
+    <div class="contact-form-card">
+
+        <h2>
+            <i class="bi bi-envelope-fill"></i>
+            Envíanos un mensaje
+        </h2>
+
+        <div th:if="${param.success}"
+             class="contact-success-message">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            Mensaje enviado correctamente.
+
+        </div>
+
+        <form th:action="@{/contacto}"
+              th:object="${contactRequest}"
+              method="post"
+              class="contact-form">
+
+            <div class="contact-grid">
+
+                <div class="contact-group">
+                    <label>Nombre Completo</label>
+
+                    <input type="text"
+                           th:field="*{name}"
+                           placeholder="Tu nombre"
+                           required>
+                </div>
+
+                <div class="contact-group">
+                    <label>Email</label>
+
+                    <input type="email"
+                           th:field="*{email}"
+                           placeholder="nombre@ejemplo.ec"
+                           required>
+                </div>
+
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="contact-group">
+                    <label>Teléfono</label>
+
+                    <input type="text"
+                           th:field="*{phone}"
+                           placeholder="+593 90 000 0000"
+                           required>
+                </div>
+
+                <div class="contact-group">
+                    <label>Motivo del contacto</label>
+
+                    <select th:field="*{purpose}" required>
+
+                        <option value="">
+                            Selecciona una opción
+                        </option>
+
+                        <option th:each="finalidad : ${finalidades}"
+                                th:value="${finalidad}"
+                                th:text="${finalidad.visualName}">
+                        </option>
+
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit"
+                    class="contact-button">
+                Enviar Mensaje
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="contact-info">
+
+        <div class="info-card">
+
+            <h3>Información Directa</h3>
+
+            <div class="info-item">
+                <i class="bi bi-geo-alt-fill"></i>
+
+                <div>
+                    <strong>Sede Quito</strong>
+                    <p>Av. Amazonas N34-451 y Atahualpa, Quito, Ecuador</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="bi bi-telephone-fill"></i>
+
+                <div>
+                    <strong>Teléfono</strong>
+                    <p>+593 2 298-1000</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="bi bi-clock-fill"></i>
+
+                <div>
+                    <strong>Horario de Atención</strong>
+                    <p>Lun - Vie: 08:30 - 17:30</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="map-card">
+
+            <div class="map-overlay">
+                <i class="bi bi-map-fill"></i>
+
+                <h4>Ver en Google Maps</h4>
+
+                <span>Quito, Ecuador</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">Ecuador Comparte</div>
+                <p class="footer-desc">
+                    Impulsamos el progreso humano y productivo de personas, familias y empresas en Ecuador.
+                    Acompañamos a quienes buscan reconstruir su futuro.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/Ccomparte" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/latinoamericacomparte?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/latinoam%C3%A9rica-comparte-emprendimiento-conferencias-productividad-empresarial/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@colombiacomparte" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-heading">Navegación</div>
+                <ul class="footer-links">
+                    <li><a th:href="@{/}">Inicio</a></li>
+                    <li><a th:href="@{/sobre-nosotros}">Sobre nosotros</a></li>
+                    <li><a th:href="@{/noticias}">Noticias</a></li>
+                    <li><a th:href="@{/testimonios}">Testimonios</a></li>
+                    <li><a th:href="@{/contacto}">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-heading">Contacto</div>
+                <ul class="footer-links">
+                    <li><i class="bi bi-envelope"></i> info@ecuadorcomparte.com</li>
+                    <li><i class="bi bi-telephone"></i> +53 00000000000</li>
+                    <li><i class="bi bi-geo-alt"></i> Quito, Ecuador</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Ecuador Comparte. Todos los derechos reservados.</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias | Admin Ecuador</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+</head>
+
+<body>
+
+<div class="admin-news-layout">
+
+    <aside class="admin-news-sidebar">
+
+        <div>
+            <div class="admin-news-logo">
+                <h2>Ecuador Comparte</h2>
+                <p>Gestión de Impacto Nacional</p>
+            </div>
+
+            <nav class="admin-news-menu">
+
+                <a th:href="@{/admin}">
+                    <i class="bi bi-grid-fill"></i>
+                    Dashboard
+                </a>
+
+                <a th:href="@{/contact-request}">
+                    <i class="bi bi-bar-chart-fill"></i>
+                    Contacto
+                </a>
+
+                <a th:href="@{/news}" class="active">
+                    <i class="bi bi-newspaper"></i>
+                    Noticias
+                </a>
+
+                <a th:href="@{/testimonials}">
+                    <i class="bi bi-chat-square-quote-fill"></i>
+                    Testimonios
+                </a>
+
+
+            </nav>
+        </div>
+
+        <div class="admin-news-bottom">
+
+            <a th:href="@{/news/create}" class="admin-news-report-btn">
+                <i class="bi bi-plus-lg"></i>
+                Nueva Noticia
+            </a>
+
+            <a th:href="@{/logout}" class="admin-news-logout">
+                <i class="bi bi-box-arrow-right"></i>
+                Cerrar Sesión
+            </a>
+
+        </div>
+
+    </aside>
+
+    <main class="admin-news-main">
+
+        <div class="admin-news-header">
+
+            <div>
+                <h1>Noticias</h1>
+                <p>Gestiona los artículos de impacto y comunicación oficial en Ecuador.</p>
+            </div>
+
+            <a th:href="@{/news/create}" class="admin-news-create-btn">
+                <i class="bi bi-pencil-square"></i>
+                New Post
+            </a>
+
+        </div>
+
+        <form th:action="@{/news}"
+              method="get"
+              class="admin-news-filters">
+
+            <div class="admin-news-search">
+
+                <i class="bi bi-search"></i>
+
+                <input type="text"
+                       name="search"
+                       th:value="${search}"
+                       placeholder="Buscar por título o autor...">
+
+            </div>
+
+            <select name="state"
+                    class="admin-news-filter-btn">
+
+                <option value="">
+                    Todos los Estados
+                </option>
+
+                <option
+                        th:each="estado : ${estados}"
+                        th:value="${estado}"
+                        th:text="${estado.visualName}"
+                        th:selected="${estado == selectedState}">
+                </option>
+
+            </select>
+
+            <button type="submit"
+                    class="admin-news-create-btn">
+
+                Buscar
+
+            </button>
+
+        </form>
+
+        <section class="admin-news-table-card">
+
+            <table class="admin-news-table">
+
+                <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Estado</th>
+                    <th>Autor</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr th:each="news : ${newsList}">
+
+                    <td>
+                        <div class="admin-news-article">
+                            <div class="admin-news-thumb"></div>
+
+                            <div>
+                                <h3 th:text="${news.title}">
+                                    Inauguración de nuevo centro de salud
+                                </h3>
+
+                                <p th:text="${news.summary}">
+                                    Salud e Infraestructura
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="admin-news-status published"
+                              th:text="${news.state.getVisualName()}">
+                            PUBLISHED
+                        </span>
+                    </td>
+
+                    <td>
+                        <div class="admin-news-author">
+                            <span th:text="${#strings.substring(news.author,0,1)}">E</span>
+                            <p th:text="${news.author}">Equipo Ecuador</p>
+                        </div>
+                    </td>
+
+                    <td th:text="${#temporals.format(news.publicationDate, 'dd MMM yyyy')}">
+                        Oct 12, 2026
+                    </td>
+
+                    <td>
+                        <div class="admin-news-actions">
+                            <a th:href="@{/noticias/{id}(id=${news.id})}" title="Ver">
+                                <i class="bi bi-eye"></i>
+                            </a>
+
+                            <a th:href="@{'/news/edit/' + ${news.id}}" title="Editar">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <a th:href="@{/news/delete/{id}(id=${news.id})}" title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section class="admin-news-stats">
+
+            <div class="admin-news-stat-card">
+                <i class="bi bi-eye-fill"></i>
+                <h2>14.2k</h2>
+                <p>Visualizaciones totales en Ecuador</p>
+            </div>
+
+            <div class="admin-news-stat-card">
+                <i class="bi bi-share-fill"></i>
+                <h2>1.8k</h2>
+                <p>Compartidos en redes locales</p>
+            </div>
+
+            <div class="admin-news-stat-card">
+                <i class="bi bi-clipboard-check-fill"></i>
+                <h2>24</h2>
+                <p>Artículos publicados este trimestre</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

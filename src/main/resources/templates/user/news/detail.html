@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${news.title} + ' | Ecuador Comparte'">
+        Detalle Noticia
+    </title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="icon"
+          type="image/png"
+          th:href="@{/images/logo.png}">
+</head>
+
+<body>
+
+<!-- ====================================== -->
+<!-- NAVBAR -->
+<!-- ====================================== -->
+
+<header class="home-navbar">
+
+    <div class="home-logo">
+
+        <img
+                th:src="@{/images/logo.png}"
+                alt="Logo"
+                class="logo-image"
+        >
+
+        <span>Ecuador Comparte</span>
+
+    </div>
+
+    <nav class="home-nav">
+
+        <a href="/">Impacto</a>
+
+        <a href="/noticias" class="active-link">
+            Noticias
+        </a>
+
+        <a href="/testimonios">
+            Testimonios
+        </a>
+
+        <a href="/contacto">
+            Contacto
+        </a>
+
+    </nav>
+
+    <div class="home-actions">
+
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+
+        <a href="/login" class="login-btn">
+            Iniciar Sesión
+        </a>
+
+    </div>
+
+</header>
+
+<!-- ====================================== -->
+<!-- HERO -->
+<!-- ====================================== -->
+
+<section class="news-detail-hero">
+
+    <a href="/noticias" class="back-news-link">
+
+        <i class="bi bi-arrow-left"></i>
+
+        Volver a noticias
+
+    </a>
+
+    <span class="news-detail-badge">
+        NOTICIA ECUADOR COMPARTE
+    </span>
+
+    <h1 th:text="${news.title}">
+        Título noticia
+    </h1>
+
+    <p th:text="${news.summary}">
+        Resumen noticia
+    </p>
+
+    <div class="news-detail-meta">
+
+        <span>
+
+            <i class="bi bi-calendar-event"></i>
+
+            <span
+                    th:text="${#temporals.format(news.publicationDate, 'dd MMMM yyyy')}">
+                18 Mayo 2026
+            </span>
+
+        </span>
+
+        <span>
+
+            <i class="bi bi-person-circle"></i>
+
+            <span th:text="${news.author}">
+                Autor
+            </span>
+
+        </span>
+
+    </div>
+
+</section>
+
+<!-- ====================================== -->
+<!-- IMAGEN -->
+<!-- ====================================== -->
+
+<section class="news-detail-cover">
+
+    <img
+            th:src="@{${news.imageUrl}}"
+            alt="Imagen noticia"
+            class="news-detail-main-image"
+    >
+
+</section>
+
+<!-- ====================================== -->
+<!-- CONTENIDO -->
+<!-- ====================================== -->
+
+<section class="news-detail-content">
+
+    <article class="article-content">
+
+        <p th:text="${news.content}">
+            Contenido noticia
+        </p>
+
+    </article>
+
+    <!-- SIDE CARD -->
+
+    <aside class="article-side-card">
+
+        <h3>
+            Resumen
+        </h3>
+
+        <p th:text="${news.summary}">
+            Resumen noticia
+        </p>
+
+        <div class="side-info">
+
+            <strong>Autor</strong>
+
+            <span th:text="${news.author}">
+                Autor
+            </span>
+
+        </div>
+
+        <div class="side-info">
+
+            <strong>Estado</strong>
+
+            <span th:text="${news.state.getVisualName()}">
+                Estado
+            </span>
+
+        </div>
+
+        <div class="side-info">
+
+            <strong>Fecha</strong>
+
+            <span
+                    th:text="${#temporals.format(news.publicationDate, 'dd/MM/yyyy')}">
+                Fecha
+            </span>
+
+        </div>
+
+    </aside>
+
+</section>
+
+<!-- ====================================== -->
+<!-- RELACIONADAS -->
+<!-- ====================================== -->
+
+<section class="related-news-section">
+
+    <h2>
+        También te puede interesar
+    </h2>
+
+    <div class="related-news-grid">
+
+        <div class="related-news-card">
+
+            <div class="related-image"></div>
+
+            <h3>
+                Brigadas médicas rurales
+            </h3>
+
+            <p>
+                Atención médica en comunidades vulnerables.
+            </p>
+
+        </div>
+
+        <div class="related-news-card">
+
+            <div class="related-image"></div>
+
+            <h3>
+                Inclusión digital juvenil
+            </h3>
+
+            <p>
+                Formación tecnológica para nuevas generaciones.
+            </p>
+
+        </div>
+
+        <div class="related-news-card">
+
+            <div class="related-image"></div>
+
+            <h3>
+                Huertos urbanos comunitarios
+            </h3>
+
+            <p>
+                Proyectos sostenibles para familias ecuatorianas.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================== -->
+<!-- FOOTER -->
+<!-- ====================================== -->
+
+<footer class="main-footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>
+                Ecuador Comparte
+            </h3>
+
+            <p>
+                Construyendo cimientos sociales sólidos para el Ecuador.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>
+                Recursos
+            </h4>
+
+            <a href="/noticias">
+                Noticias
+            </a>
+
+            <a href="/testimonios">
+                Testimonios
+            </a>
+
+            <a href="/contacto">
+                Contacto
+            </a>
+
+        </div>
+
+        <div>
+
+            <h4>
+                Legal
+            </h4>
+
+            <a href="#">
+                Privacidad
+            </a>
+
+            <a href="#">
+                Términos
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Ecuador Comparte. Construyendo cimientos sociales.
+    </div>
+
+</footer>
+
+<!-- ====================================== -->
+<!-- DARK MODE -->
+<!-- ====================================== -->
+
+<script>
+
+    const toggle = document.getElementById("themeToggle");
+
+    toggle.addEventListener("change", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+    });
+
+</script>
+
+</body>
+</html>

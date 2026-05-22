@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Testimonios | Admin Ecuador</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+</head>
+
+<body>
+
+<div class="admin-news-layout">
+
+    <aside class="admin-news-sidebar">
+
+        <div>
+            <div class="admin-news-logo">
+                <h2>Ecuador Comparte</h2>
+                <p>Gestión de Impacto Nacional</p>
+            </div>
+
+            <nav class="admin-news-menu">
+
+                <a th:href="@{/admin}">
+                    <i class="bi bi-grid-fill"></i>
+                    Dashboard
+                </a>
+
+                <a th:href="@{/contact-request}">
+                    <i class="bi bi-envelope-paper-fill"></i>
+                    Contacto
+                </a>
+
+                <a th:href="@{/news}">
+                    <i class="bi bi-newspaper"></i>
+                    Noticias
+                </a>
+
+                <a th:href="@{/testimonials}" class="active">
+                    <i class="bi bi-chat-square-quote-fill"></i>
+                    Testimonios
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="admin-news-bottom">
+
+            <a th:href="@{/testimonials/create}"
+               class="admin-news-report-btn">
+                <i class="bi bi-plus-lg"></i>
+                Nuevo Testimonio
+            </a>
+
+            <a th:href="@{/logout}"
+               class="admin-news-logout">
+                <i class="bi bi-box-arrow-right"></i>
+                Cerrar Sesión
+            </a>
+
+        </div>
+
+    </aside>
+
+    <main class="admin-news-main">
+
+        <div class="admin-news-header">
+
+            <div>
+                <h1>Testimonios</h1>
+                <p>Gestiona las personas destacadas y sus redes sociales.</p>
+            </div>
+
+            <a th:href="@{/testimonials/create}"
+               class="admin-news-create-btn">
+                <i class="bi bi-plus-square"></i>
+                Nuevo Testimonio
+            </a>
+
+        </div>
+
+        <section class="admin-news-table-card">
+
+            <table class="admin-news-table">
+
+                <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th>Foto</th>
+                    <th>Instagram</th>
+                    <th>Facebook</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr th:each="testimonial : ${testimonials}">
+
+                    <td>
+                        <div class="admin-news-article">
+
+                            <div class="admin-news-thumb testimonial-admin-thumb">
+                                <span th:text="${#strings.substring(testimonial.name,0,1)}">
+                                    T
+                                </span>
+                            </div>
+
+                            <div>
+                                <h3 th:text="${testimonial.name}">
+                                    Nombre persona
+                                </h3>
+                            </div>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="testimonial-role"
+                              th:text="${testimonial.photoUrl}">
+                            Foto
+                        </span>
+                    </td>
+
+                    <td>
+                        <span class="testimonial-role"
+                              th:text="${testimonial.instagramUrl}">
+                            Instagram
+                        </span>
+                    </td>
+
+                    <td>
+                        <span class="testimonial-role"
+                              th:text="${testimonial.facebookUrl}">
+                            Facebook
+                        </span>
+                    </td>
+
+                    <td>
+                        <div class="admin-news-actions">
+
+                            <a th:href="@{'/testimonials/edit/' + ${testimonial.id}}"
+                               title="Editar">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <a th:href="@{/testimonials/delete/{id}(id=${testimonial.id})}"
+                               title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                            </a>
+
+                        </div>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section class="admin-news-stats">
+
+            <div class="admin-news-stat-card">
+                <i class="bi bi-chat-square-heart-fill"></i>
+                <h2 th:text="${#lists.size(testimonials)}">0</h2>
+                <p>Testimonios registrados</p>
+            </div>
+
+            <div class="admin-news-stat-card">
+                <i class="bi bi-instagram"></i>
+                <h2>IG</h2>
+                <p>Perfiles de Instagram vinculados</p>
+            </div>
+
+            <div class="admin-news-stat-card">
+                <i class="bi bi-facebook"></i>
+                <h2>FB</h2>
+                <p>Perfiles de Facebook vinculados</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias | Ecuador Comparte</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="home-navbar">
+
+    <div class="home-logo">
+        <img th:src="@{/images/logo.png}" alt="Logo" class="logo-image">
+        <span>Ecuador Comparte</span>
+    </div>
+
+    <nav class="home-nav">
+        <a href="/">Impacto</a>
+        <a href="/noticias" class="active-link">Noticias</a>
+        <a href="/testimonios">Testimonios</a>
+        <a href="/contacto">Contacto</a>
+    </nav>
+
+    <div class="home-actions">
+        <a th:href="@{/login}" class="login-btn">Iniciar Sesión</a>
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="news-page-hero">
+    <div class="news-page-title">
+        <span class="news-page-badge">ACTUALIDAD ECUADOR</span>
+        <h1>
+            Noticias de impacto en <span>Ecuador</span>
+        </h1>
+    </div>
+    <div class="news-page-description">
+        <p>
+            Explora las historias más relevantes y los avances de nuestros proyectos comunitarios.
+        </p>
+    </div>
+</section>
+
+<!-- NEWS GRID -->
+<section class="news-page-grid">
+
+    <!-- Noticias dinámicas -->
+    <div th:each="news : ${newsList}" class="news-page-card">
+
+        <div class="news-page-image" th:style="'background-image:url(' + ${news.imageUrl} + ')'">
+        </div>
+
+        <div class="news-page-content">
+            <h3 th:text="${news.title}">Título de la noticia</h3>
+            <p th:text="${news.summary}">Resumen de la noticia</p>
+            <small th:text="${#temporals.format(news.publicationDate, 'dd MMM, yyyy')}">Fecha</small>
+
+            <a th:href="@{'/noticias/' + ${news.id}}">
+                Leer historia completa <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">Ecuador Comparte</div>
+                <p class="footer-desc">Impulsamos el progreso humano y productivo de personas, familias y empresas en Ecuador. Acompañamos a quienes buscan reconstruir su futuro.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/Ccomparte" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/latinoamericacomparte?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/latinoam%C3%A9rica-comparte-emprendimiento-conferencias-productividad-empresarial/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@colombiacomparte" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-heading">Navegación</div>
+                <ul class="footer-links">
+                    <li><a th:href="@{/}">Inicio</a></li>
+                    <li><a th:href="@{/sobre-nosotros}">Sobre nosotros</a></li>
+                    <li><a th:href="@{/noticias}">Noticias</a></li>
+                    <li><a th:href="@{/testimonios}">Testimonios</a></li>
+                    <li><a th:href="@{/contacto}">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-heading">Contacto</div>
+                <ul class="footer-links">
+                    <li><i class="bi bi-envelope"></i> info@ecuadorcomparte.com</li>
+                    <li><i class="bi bi-telephone"></i> +53 00000000000</li>
+                    <li><i class="bi bi-geo-alt"></i> Quito, Ecuador</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Ecuador Comparte. Todos los derechos reservados.</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
