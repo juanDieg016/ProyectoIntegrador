@@ -64,9 +64,7 @@
             <span class="slider"></span>
         </label>
 
-        <a href="/login" class="login-btn">
-            Iniciar Sesión
-        </a>
+
 
     </div>
 
@@ -123,14 +121,6 @@
 
     </div>
 
-</section>
-
-<!-- ====================================== -->
-<!-- IMAGEN -->
-<!-- ====================================== -->
-
-<section class="news-detail-cover">
-
     <img
             th:src="@{${news.imageUrl}}"
             alt="Imagen noticia"
@@ -138,6 +128,8 @@
     >
 
 </section>
+
+
 
 <!-- ====================================== -->
 <!-- CONTENIDO -->
@@ -200,126 +192,45 @@
 
 </section>
 
-<!-- ====================================== -->
-<!-- RELACIONADAS -->
-<!-- ====================================== -->
 
-<section class="related-news-section">
 
-    <h2>
-        También te puede interesar
-    </h2>
-
-    <div class="related-news-grid">
-
-        <div class="related-news-card">
-
-            <div class="related-image"></div>
-
-            <h3>
-                Brigadas médicas rurales
-            </h3>
-
-            <p>
-                Atención médica en comunidades vulnerables.
-            </p>
-
-        </div>
-
-        <div class="related-news-card">
-
-            <div class="related-image"></div>
-
-            <h3>
-                Inclusión digital juvenil
-            </h3>
-
-            <p>
-                Formación tecnológica para nuevas generaciones.
-            </p>
-
-        </div>
-
-        <div class="related-news-card">
-
-            <div class="related-image"></div>
-
-            <h3>
-                Huertos urbanos comunitarios
-            </h3>
-
-            <p>
-                Proyectos sostenibles para familias ecuatorianas.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ====================================== -->
 <!-- FOOTER -->
-<!-- ====================================== -->
-
-<footer class="main-footer">
-
-    <div class="footer-grid">
-
-        <div>
-
-            <h3>
-                Ecuador Comparte
-            </h3>
-
-            <p>
-                Construyendo cimientos sociales sólidos para el Ecuador.
-            </p>
-
+<footer>
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">Ecuador Comparte</div>
+                <p class="footer-desc">Impulsamos el progreso humano y productivo de personas, familias y empresas en Ecuador. Acompañamos a quienes buscan reconstruir su futuro.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/Ccomparte" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/latinoamericacomparte?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/latinoam%C3%A9rica-comparte-emprendimiento-conferencias-productividad-empresarial/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@colombiacomparte" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-heading">Navegación</div>
+                <ul class="footer-links">
+                    <li><a th:href="@{/}">Inicio</a></li>
+                    <li><a th:href="@{/sobre-nosotros}">Sobre nosotros</a></li>
+                    <li><a th:href="@{/noticias}">Noticias</a></li>
+                    <li><a th:href="@{/testimonios}">Testimonios</a></li>
+                    <li><a th:href="@{/contacto}">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-heading">Contacto</div>
+                <ul class="footer-links">
+                    <li><i class="bi bi-envelope"></i> info@ecuadorcomparte.com</li>
+                    <li><i class="bi bi-telephone"></i> +53 00000000000</li>
+                    <li><i class="bi bi-geo-alt"></i> Quito, Ecuador</li>
+                </ul>
+            </div>
         </div>
-
-        <div>
-
-            <h4>
-                Recursos
-            </h4>
-
-            <a href="/noticias">
-                Noticias
-            </a>
-
-            <a href="/testimonios">
-                Testimonios
-            </a>
-
-            <a href="/contacto">
-                Contacto
-            </a>
-
+        <div class="footer-bottom">
+            <span>© 2026 Ecuador Comparte. Todos los derechos reservados.</span>
         </div>
-
-        <div>
-
-            <h4>
-                Legal
-            </h4>
-
-            <a href="#">
-                Privacidad
-            </a>
-
-            <a href="#">
-                Términos
-            </a>
-
-        </div>
-
     </div>
-
-    <div class="footer-bottom">
-        © 2026 Ecuador Comparte. Construyendo cimientos sociales.
-    </div>
-
 </footer>
 
 <!-- ====================================== -->

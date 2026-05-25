@@ -61,4 +61,8 @@ public class NewsService {
 
         return repository.findByState(state);
     }
+    public List<News> findTop3Published() {
+        return repository.findTop3ByStateOrderByPublicationDateDesc(NewsState.NEWS_STATE_PUBLISHED);
+    }
+
 }

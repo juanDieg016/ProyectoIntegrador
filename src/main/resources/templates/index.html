@@ -75,13 +75,7 @@
 
         </label>
 
-        <!-- LOGIN -->
-        <a th:href="@{/login}"
-           class="login-btn">
 
-            Iniciar Sesión
-
-        </a>
 
     </div>
 
@@ -216,60 +210,31 @@
 
 </section>
 
-<!-- ====================================== -->
 <!-- NEWS -->
-<!-- ====================================== -->
-
 <section class="news-section">
 
     <div class="section-header">
-
         <div>
-
             <h2>Actualidad en Territorio</h2>
-
             <p>Noticias y proyectos recientes.</p>
-
         </div>
-
     </div>
 
     <div class="news-grid">
 
-        <!-- NOTICIA 1 -->
-        <div class="news-card">
-            <img th:src="@{/images/ensenanza.jpg}" alt="educacion" class="news-image" />
-            <div class="news-content">
-                <span class="news-category">EDUCACIÓN</span>
-                <h3>Proyecto educativo comunitario</h3>
-                <p>Nuevos espacios digitales para jóvenes.</p>
-                <!-- Botón Leer más -->
-                <a th:href="@{/noticias/1}" class="read-more">Leer más →</a>
-            </div>
-        </div>
+        <div th:each="news : ${newsList}" class="news-card">
 
-        <!-- NOTICIA 2 -->
-        <div class="news-card">
-            <img th:src="@{/images/salud.jpeg}" alt="salud" class="news-image" />
-            <div class="news-content">
-                <span class="news-category">SALUD</span>
-                <h3>Brigadas médicas rurales</h3>
-                <p>Atención médica en comunidades vulnerables.</p>
-                <!-- Botón Leer más -->
-                <a th:href="@{/noticias/2}" class="read-more">Leer más →</a>
+            <div class="news-image"
+                 th:style="'background-image: url(' + ${news.imageUrl} + ')'">
             </div>
-        </div>
 
-        <!-- NOTICIA 3 -->
-        <div class="news-card">
-            <img th:src="@{/images/tecnologia.jpg}" alt="tecnologia" class="news-image" />
             <div class="news-content">
-                <span class="news-category">TECNOLOGÍA</span>
-                <h3>Inclusión digital juvenil</h3>
-                <p>Formación tecnológica para nuevas generaciones.</p>
-                <!-- Botón Leer más -->
-                <a th:href="@{/noticias/3}" class="read-more">Leer más →</a>
+                <span class="news-category" th:text="${news.author}">CATEGORÍA</span>
+                <h3 th:text="${news.title}">Título</h3>
+                <p th:text="${news.summary}">Resumen</p>
+                <a th:href="@{'/noticias/' + ${news.id}}" class="read-more">Leer más →</a>
             </div>
+
         </div>
 
     </div>

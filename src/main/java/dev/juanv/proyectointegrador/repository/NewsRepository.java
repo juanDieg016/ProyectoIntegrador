@@ -14,4 +14,5 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     );
 
     List<News> findByState(NewsState state);
+    List<News> findTop3ByStateOrderByPublicationDateDesc(NewsState state);
 }

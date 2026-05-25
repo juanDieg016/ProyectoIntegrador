@@ -123,24 +123,26 @@
                     </td>
 
                     <td>
-                        <span class="testimonial-role"
-                              th:text="${testimonial.photoUrl}">
-                            Foto
-                        </span>
+                        <img th:src="${testimonial.photoUrl}"
+                             alt="Foto"
+                             class="testimonial-img"
+                             style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
                     </td>
 
                     <td>
-                        <span class="testimonial-role"
-                              th:text="${testimonial.instagramUrl}">
-                            Instagram
-                        </span>
+                        <a th:href="${testimonial.instagramUrl}"
+                           target="_blank"
+                           style="color:#7c5cff; font-size:1.4rem;">
+                            <i class="bi bi-instagram"></i>
+                        </a>
                     </td>
 
                     <td>
-                        <span class="testimonial-role"
-                              th:text="${testimonial.facebookUrl}">
-                            Facebook
-                        </span>
+                        <a th:href="${testimonial.facebookUrl}"
+                           target="_blank"
+                           style="color:#7c5cff; font-size:1.4rem;">
+                            <i class="bi bi-facebook"></i>
+                        </a>
                     </td>
 
                     <td>

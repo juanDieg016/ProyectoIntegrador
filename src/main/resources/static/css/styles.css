@@ -4419,5 +4419,340 @@ body.dark-mode .error-container p{
 }
 
 
+/* ADMIN INFO CARDS - FIXES */
+
+.dashboard-content-grid {
+    width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.activity-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 1px solid #e8e8f0;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.info-icon {
+    font-size: 20px;
+    color: #6c63ff;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-content h3 {
+    margin: 0 0 6px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.info-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #6b6b80;
+    line-height: 1.5;
+}
+/* ====================================== */
+/* DASHBOARD INFO PAGE - OVERRIDE        */
+/* ====================================== */
+
+/* La página de info solo tiene 1 columna, no 2 */
+.dashboard-content-grid.single-col {
+    grid-template-columns: 1fr;
+    padding: 0;
+}
+
+/* O si no quieres agregar clase, usa esto directo en el HTML de info: */
+.admin-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 1.5rem;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 1.2rem 1.5rem;
+    background: #f8f7ff;
+    border: 1px solid #e8e4ff;
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(124, 92, 255, .1);
+}
+
+.info-icon {
+    font-size: 1.1rem;
+    color: #7c5cff;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.info-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-content h3 {
+    margin: 0 0 4px 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f1b2d;
+}
+
+.info-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6b6280;
+    line-height: 1.5;
+}
+/* ====================================== */
+/* ÍNDIGO CLARO - TABLAS CONTACTOS Y NOTICIAS */
+/* ====================================== */
+
+/* AVATAR - letra inicial */
+.admin-news-author span,
+.admin-news-table td .avatar-inicial {
+    background: #e0e7ff;
+    color: #3730a3;
+}
 
 
+.admin-news-table .testimonial-admin-thumb span,
+td .contact-avatar,
+td [class*="avatar"] {
+    background: #e0e7ff !important;
+    color: #3730a3 !important;
+}
+
+
+.admin-news-table td a,
+.admin-news-table td .pill,
+.contact-email-pill,
+.contact-phone-pill {
+    background: #e0e7ff;
+    color: #3730a3;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: .85rem;
+    font-weight: 500;
+    display: inline-block;
+    border: none;
+}
+
+
+.admin-news-status,
+.testimonial-role,
+.contact-motivo-badge,
+.status {
+    background: #d1f5f8 !important;
+    color: rgba(44, 83, 237, 0.69) !important;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+
+.admin-news-table thead,
+.activity-table th {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+
+.admin-news-table tr:hover,
+.activity-table tr:hover {
+    background: #f5f3ff;
+}
+
+
+.admin-news-pagination button.active,
+.active-page {
+    background: #3730a3;
+    color: #e0e7ff;
+}
+.dashboard-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+/* ====================================== */
+/* FIX IMAGEN NOTICIAS PUBLIC            */
+/* ====================================== */
+
+.news-page-image {
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+.news-page-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    transition: .35s;
+}
+
+.news-page-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(124,92,255,.18);
+}
+
+.news-page-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.news-page-content h3 {
+    font-size: 1.2rem;
+    color: #1f1b2d;
+    line-height: 1.4;
+}
+
+.news-page-content p {
+    color: #6b6280;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.news-page-content small {
+    color: #9ca3af;
+    font-size: .85rem;
+}
+
+.news-page-content a {
+    color: #7c5cff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+/* GRID - máximo 3 columnas */
+.news-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 3rem 6rem;
+}
+
+@media(max-width: 1100px) {
+    .news-page-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 3rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .news-page-grid {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+    }
+}
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+/* ====================================== */
+/* FIX IMÁGENES NEWS-GRID INDEX          */
+/* ====================================== */
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    transition: .35s;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(124,92,255,.18);
+}
+
+.news-card .news-image {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+.news-card img.news-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+}
+
+.news-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+/* ====================================== */
+/* FIX IMAGEN DETALLE NOTICIA            */
+/* ====================================== */
+
+.news-detail-cover {
+    padding: 0 6rem 3rem;
+    background: #f5f3ff;
+}
+
+.news-detail-main-image {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 24px;
+    display: block;
+}

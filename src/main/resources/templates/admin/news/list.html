@@ -142,25 +142,33 @@
 
                     <td>
                         <div class="admin-news-article">
-                            <div class="admin-news-thumb"></div>
+
+                            <img th:src="${news.imageUrl}"
+                                 alt="imagen"
+                                 style="width:58px; height:58px; border-radius:12px; object-fit:cover; flex-shrink:0;">
 
                             <div>
                                 <h3 th:text="${news.title}">
                                     Inauguración de nuevo centro de salud
                                 </h3>
-
                                 <p th:text="${news.summary}">
                                     Salud e Infraestructura
                                 </p>
                             </div>
+
                         </div>
                     </td>
 
                     <td>
-                        <span class="admin-news-status published"
-                              th:text="${news.state.getVisualName()}">
-                            PUBLISHED
-                        </span>
+        <span class="admin-news-status published"
+              th:if="${news.state != null}"
+              th:text="${news.state.visualName}">
+            Publicado
+        </span>
+                        <span class="admin-news-status"
+                              th:unless="${news.state != null}">
+            Sin estado
+        </span>
                     </td>
 
                     <td>
@@ -179,11 +187,9 @@
                             <a th:href="@{/noticias/{id}(id=${news.id})}" title="Ver">
                                 <i class="bi bi-eye"></i>
                             </a>
-
                             <a th:href="@{'/news/edit/' + ${news.id}}" title="Editar">
                                 <i class="bi bi-pencil"></i>
                             </a>
-
                             <a th:href="@{/news/delete/{id}(id=${news.id})}" title="Eliminar">
                                 <i class="bi bi-trash"></i>
                             </a>
@@ -202,20 +208,20 @@
 
             <div class="admin-news-stat-card">
                 <i class="bi bi-eye-fill"></i>
-                <h2>14.2k</h2>
-                <p>Visualizaciones totales en Ecuador</p>
+                <h2 th:text="${#lists.size(newsList)}">0</h2>
+                <p>Noticias publicadas</p>
             </div>
 
             <div class="admin-news-stat-card">
                 <i class="bi bi-share-fill"></i>
-                <h2>1.8k</h2>
-                <p>Compartidos en redes locales</p>
+                <h2>Conexiòn</h2>
+                <p>Comparte en redes locales</p>
             </div>
 
             <div class="admin-news-stat-card">
                 <i class="bi bi-clipboard-check-fill"></i>
-                <h2>24</h2>
-                <p>Artículos publicados este trimestre</p>
+                <h2>Cambio</h2>
+                <p>Informaciòn relevante</p>
             </div>
 
         </section>

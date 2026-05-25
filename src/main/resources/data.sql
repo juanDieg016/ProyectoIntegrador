@@ -19,7 +19,7 @@ VALUES (
 
 'Ecuador Comparte continúa fortaleciendo comunidades mediante proyectos educativos y sociales que generan nuevas oportunidades para niños, jóvenes y familias vulnerables.',
 
-'/images/news1.jpg',
+'https://files.diarioportal.com/diarioportal/images/2025/06/4jRnltIt2z7AbRorypsJ3T46f7WXsVzk3aTdKcJW.jpg',
 
 'Equipo Ecuador Comparte',
 
@@ -44,7 +44,7 @@ VALUES (
 
            'Ecuador Comparte realizó nuevas brigadas médicas en sectores rurales con el objetivo de brindar atención preventiva, orientación familiar y apoyo comunitario a cientos de personas.',
 
-           '/images/news2.jpg',
+           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIOpx8W2FV7anuOnP8d5zMTUTJRhkt4SSgJg&s',
 
            'Fundación Ecuador Comparte',
 
@@ -52,6 +52,31 @@ VALUES (
 
            'NEWS_STATE_PUBLISHED'
        )ON CONFLICT (id) DO NOTHING;
+INSERT INTO news (
+    title,
+    summary,
+    content,
+    image_url,
+    author,
+    publication_date,
+    state
+)
+VALUES (
+           'Talleres de emprendimiento para jóvenes en Quito',
+
+           'Capacitación en habilidades productivas y liderazgo juvenil.',
+
+           'Ecuador Comparte lanzó una nueva serie de talleres de emprendimiento dirigidos a jóvenes entre 16 y 28 años en la ciudad de Quito. Las jornadas incluyen formación en finanzas personales, creación de negocios y desarrollo de habilidades blandas, con el objetivo de generar nuevas oportunidades de trabajo e independencia económica para la juventud ecuatoriana.',
+
+           'https://www.elcomercio.com/wp-content/uploads/2023/04/marketing-digital2-700x391.png',
+
+           'Equipo Ecuador Comparte',
+
+           '2026-05-21 08:00:00',
+
+           'NEWS_STATE_PUBLISHED'
+       ) ON CONFLICT (id) DO NOTHING;
+
 
 -- ============================================================
 -- SEED: contact_requests
