@@ -21,7 +21,7 @@ jobs:
             "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
             -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
             -H "Content-Type: application/json" \
-            -d '{"clearCache": false}')
+           -d '{"clearCache":"do_not_clear"}')
 
           HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
           BODY=$(echo "$RESPONSE" | head -n -1)
@@ -29,7 +29,7 @@ jobs:
           echo "Response status: $HTTP_CODE"
           echo "Response body: $BODY"
 
-          if [ "$HTTP_CODE" -ne 201 ]; then
+          if [ "$HTTP_CODE" -ne 201 ] && [ "$HTTP_CODE" -ne 202 ]; then
             echo "Deploy trigger failed with status $HTTP_CODE"
             exit 1
           fi
