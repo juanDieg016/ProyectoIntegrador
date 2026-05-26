@@ -275,13 +275,13 @@ src/
 
 ## Diagrama de arquitectura
 
-En esta sección se encuentra el diagrama de arquitectura del sistema.
+[Diagrama UML de Arquitectura](images/uml.png)
 
 ---
 
 ## Modelo Entidad/Relación
 
-En esta sección se encuentra el modelo Entidad/Relación de la base de datos.
+[Diagrama UML de Arquitectura](images/draw.png)
 
 ---
 
@@ -367,36 +367,35 @@ Utilizado para el control de versiones y manejo del código fuente del proyecto.
 ## Capturas UI/UX
 
 ### Página Principal
-
-En esta sección se muestra la página principal del sistema Ecuador Comparte.
+[Pagina principal](images/principal.png)
 
 ### Noticias
 
-En esta sección se muestra la vista de noticias de impacto en Ecuador.
+[Pagina de noticias](images/noticias.png)
 
 ### Testimonios
 
-En esta sección se muestra la vista de testimonios publicados en la plataforma.
+[Pagina de testimonios ](images/noticias.png)
 
 ### Contacto
 
-En esta sección se muestra el formulario de contacto del sistema.
+[Pagina de contacto ](images/contacto.png)
 
 ### Dashboard Administrativo
 
-En esta sección se muestra el panel administrativo del sistema.
+[Pagina de dashboard ](images/dashboard.png)
 
 ### Gestión de Noticias
 
-En esta sección se muestra la administración de noticias.
+[Pagina de Gestion de noticias ](images/gestionN.png)
 
 ### Gestión de Testimonios
 
-En esta sección se muestra la administración de testimonios.
+[Pagina de Gestion de testimonios ](images/gestionT.png)
 
 ### Gestión de Contactos
 
-En esta sección se muestra la administración de solicitudes de contacto.
+[Pagina de Gestion de contacto ](images/gestionC.png)
 
 ---
 
