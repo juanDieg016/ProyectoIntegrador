@@ -447,6 +447,3 @@ Este proyecto permitió aplicar conocimientos de desarrollo de software en un si
 
 ---
 
-## Autor
-
-Proyecto desarrollado como parte del Proyecto Integrador.
