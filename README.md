@@ -137,14 +137,7 @@ Usuario: admin
 Contraseña: admin123
 ```
 
-### Usuario normal
 
-```text
-Usuario: user
-Contraseña: user123
-```
-
----
 
 ## Instalación y ejecución del proyecto
 
